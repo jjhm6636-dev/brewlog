@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BREW LOG</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#fff9ee">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="BREW LOG">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -1068,6 +1076,7 @@ dt.addEventListener('click',e=>{
 document.addEventListener('scroll',e=>{const p=e.target;if(p&&p.id==='dtPh'){const i=Math.round(p.scrollLeft/p.clientWidth);document.querySelectorAll('.dt-dots i').forEach((d,j)=>d.classList.toggle('on',i===j))}},true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dt.classList.contains('on')&&!$('ed').classList.contains('on'))closeDt()});
 applyHero();render();startKakao();
+try{if('serviceWorker' in navigator&&location.protocol==='https:'&&/github\.io$/.test(location.hostname))navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}
 }
 </script>
 </body>
